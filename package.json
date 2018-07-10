@@ -1,0 +1,15 @@
+{
+  "name": "rb-10-liri-node-app",
+  "version": "1.0.0",
+  "description": "* command line node app that takes in parameters and gives you back data * display latest tweets... add a few tweets to alias account * will need to send requests to Twitter, Spotify, OMDB APIs    * [Twitter](https://www.npmjs.com/package/twitter)    * [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)    * [Request](https://www.npmjs.com/package/request)      * use Request to grab data from the [OMDB API](http://www.omdbapi.com).    * [DotEnv](https://www.npmjs.com/package/dotenv)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.87.0"
+  }
+}
