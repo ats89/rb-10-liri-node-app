@@ -29,6 +29,10 @@ function inquireCommand() {
         if (err) throw err;
 
         const inputs = data.split(',');
+
+        outputMsg('Running the \'do-what-it-says\' command:');
+        outputMsg(`It says: ${data}:`);
+
         if (inputs[0] === 'get-tweets') {
           const screenName = inputs[1] ? inputs[1] : '';
           const count = isNaN(inputs[2]) || inputs[2] < 1 || inputs[2] > 20
@@ -64,6 +68,7 @@ function inquireCommand() {
 }
 
 function inquireTwitterInfo() {
+  outputMsg('Running the \'get-tweets\' command:');
   inquirer.prompt([
     {
       type: 'input',
@@ -77,10 +82,10 @@ function inquireTwitterInfo() {
       default: 5,
       validate: (name) => {
         if (isNaN(name)) {
-          console.log('\nInvalid input: not a number!');
+          outputMsg('\nInvalid input: not a number!');
           return false;
         } else if (name < 1 || name > 20) {
-          console.log('\nInvalid input: out of range!');
+          outputMsg('\nInvalid input: out of range!');
           return false;
         } else {
           return true;
@@ -100,6 +105,7 @@ function inquireTwitterInfo() {
 }
 
 function inquireSpotifyInfo() {
+  outputMsg('Running the \'spotify-this-song\' command:');
   inquirer.prompt([
     {
       type: 'input',
@@ -113,10 +119,10 @@ function inquireSpotifyInfo() {
       default: 3,
       validate: (name) => {
         if (isNaN(name)) {
-          console.log('\nInvalid input: not a number!');
+          outputMsg('\nInvalid input: not a number!');
           return false;
         } else if (name < 1 || name > 10) {
-          console.log('\nInvalid input: out of range!');
+          outputMsg('\nInvalid input: out of range!');
           return false;
         } else {
           return true;
@@ -136,6 +142,7 @@ function inquireSpotifyInfo() {
 }
 
 function inquireMovieName() {
+  outputMsg('Running the \'movie-this\' command:');
   inquirer.prompt([
     {
       type: 'input',
@@ -170,10 +177,10 @@ function displayTweetsData(screenName, count) {
         });
       };
 
-      console.log(`Here are the last ${count} tweets on @${screenName}'s timeline:`);
-      console.log(JSON.stringify(tweetsArray, null, 2));
+      outputMsg(`Here are the last ${count} tweets on @${screenName}'s timeline:`);
+      outputMsg(JSON.stringify(tweetsArray, null, 2));
     } else {
-      console.log('Twitter user could not be found.');
+      outputMsg('Twitter user could not be found.');
     }
   });
 }
@@ -193,10 +200,10 @@ function displaySpotifyData(songName, limit, hideIntroMsg) {
         }); 
       };
 
-      if (!hideIntroMsg) console.log(`Here are the results for '${songName}':`);
-      console.log(JSON.stringify(songsArray, null, 2));
+      if (!hideIntroMsg) outputMsg(`Here are the results for '${songName}':`);
+      outputMsg(JSON.stringify(songsArray, null, 2));
     } else {
-      console.log('Your song could not be found! Here is a nice song:');
+      outputMsg('Your song could not be found! Here is a nice song:');
       displaySpotifyData('The Sign Ace of Base' ,1, true);
     };
   });
@@ -220,14 +227,27 @@ function displayMovieData(movie, hideIntroMsg) {
         actors: data.Actors
       };
 
-      if (!hideIntroMsg) console.log('Here is your movie:');
-      console.log(JSON.stringify(movieData, null, 2));
+      if (!hideIntroMsg) outputMsg('Here is your movie:');
+      outputMsg(JSON.stringify(movieData, null, 2));
     } else { // error or movie not found
-      console.log('Your movie could not be found! Here is a nice movie:');
+      outputMsg('Your movie could not be found! Here is a nice movie:');
       displayMovieData('Mr. Nobody', true);
     };
   });
 }
 
+// Output
+function outputMsg(msg) {
+  console.log(msg);
+  logOutput(msg);
+}
+
+function logOutput(msg) {
+  fs.appendFile('log.txt', `\n${msg}`, (err) => {
+    if (err) throw err;
+  });
+};
+
+// Initiate liri bot
 inquireCommand();
 

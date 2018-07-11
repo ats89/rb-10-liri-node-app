@@ -1,0 +1,89 @@
+
+Running the 'get-tweets' command:
+Here are the last 2 tweets on @realDonaldTrump's timeline:
+[
+  {
+    "createdAt": "Wed Jul 11 17:07:27 +0000 2018",
+    "text": "What good is NATO if Germany is paying Russia billions of dollars for gas and energy? Why are there only 5 out of 2… https://t.co/5AL8w3gTfz",
+    "user": "realDonaldTrump",
+    "retweetCount": 8128,
+    "favoriteCount": 29241
+  },
+  {
+    "createdAt": "Wed Jul 11 16:41:12 +0000 2018",
+    "text": "Democrats in Congress must no longer Obstruct - vote to fix our terrible Immigration Laws now. I am watching what i… https://t.co/H6fzhhUGK7",
+    "user": "realDonaldTrump",
+    "retweetCount": 8294,
+    "favoriteCount": 30587
+  }
+]
+Running the 'spotify-this-song' command:
+Here are the results for 'Gangnam Style':
+[
+  {
+    "name": "Gangnam Style (강남스타일)",
+    "artist": "PSY",
+    "album": "Gangnam Style (강남스타일)",
+    "previewLink": null
+  },
+  {
+    "name": "Gangnam Style",
+    "artist": "Kidz Bop Kids",
+    "album": "KIDZ BOP Greatest Hits!",
+    "previewLink": null
+  }
+]
+Running the 'movie-this' command:
+Here is your movie:
+{
+  "title": "The Avengers",
+  "year": "2012",
+  "imdbRating": "8.1/10",
+  "rottenTomatoesRating": "92%",
+  "country": "USA",
+  "language": "English, Russian, Hindi",
+  "plot": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+  "actors": "Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth"
+}
+Running the 'do-what-it-says' command:
+It says: movie-this, jurassic park:
+Here is your movie:
+{
+  "title": "The Lost World: Jurassic Park",
+  "year": "1997",
+  "imdbRating": "6.5/10",
+  "rottenTomatoesRating": "53%",
+  "country": "USA",
+  "language": "English, Spanish",
+  "plot": "A research team is sent to the Jurassic Park Site B island to study the dinosaurs there while another team approaches with another agenda.",
+  "actors": "Jeff Goldblum, Julianne Moore, Pete Postlethwaite, Arliss Howard"
+}
+Running the 'do-what-it-says' command:
+It says: spotify-this-song,"I Want it That Way",4:
+Here are the results for '"I Want it That Way"':
+[
+  {
+    "name": "I Want It That Way",
+    "artist": "Backstreet Boys",
+    "album": "The Hits--Chapter One",
+    "previewLink": "https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=71570300773e431c888c64e2ae235412"
+  },
+  {
+    "name": "I Want It That Way",
+    "artist": "Backstreet Boys",
+    "album": "Millennium",
+    "previewLink": "https://p.scdn.co/mp3-preview/b8c2410a5acb68b462be6ac85f1312430e2b149c?cid=71570300773e431c888c64e2ae235412"
+  },
+  {
+    "name": "I Want It That Way",
+    "artist": "Backstreet Boys",
+    "album": "The Essential Backstreet Boys",
+    "previewLink": "https://p.scdn.co/mp3-preview/f9f504a705fcaaf2f24b004b629725451014ad6c?cid=71570300773e431c888c64e2ae235412"
+  },
+  {
+    "name": "I Want It That Way",
+    "artist": "Anthem Lights",
+    "album": "Covers Part IV",
+    "previewLink": "https://p.scdn.co/mp3-preview/4a163fbfa2dbbe4433f277e0e7395dca656364f5?cid=71570300773e431c888c64e2ae235412"
+  }
+]
