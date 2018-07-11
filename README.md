@@ -9,25 +9,12 @@
      * use Request to grab data from the [OMDB API](http://www.omdbapi.com).
    * [DotEnv](https://www.npmjs.com/package/dotenv)
 
-
+* The `.env1` file will be used by the `dotenv` package to set environment variables to 
 
 * This file will be used by the `dotenv` package to set what are known as environment variables to the global `process.env` object in node. These are values that are meant to be specific to the computer that node is running on, and since we are gitignoring this file, they won't be pushed to github &mdash; keeping our API key information private.
 
 * If someone wanted to clone your app from github and run it themselves, they would need to supply their own `.env` file for it to work.
 
-5. Get your Twitter API keys by following these steps:
-
-   * Step One: Visit <https://apps.twitter.com/app/new>
-   
-   * Step Two: Fill out the form with dummy data. Type `http://google.com` in the Website input. Don't fill out the Callback URL input. Then submit the form.
-   
-   * Step Three: On the next screen, click the Keys and Access Tokens tab to get your consume key and secret. 
-     
-     * Copy and paste them into your .env file, replacing the `your-twitter-consumer-key` and `your-twitter-consumer-secret` placeholders.
-   
-   * Step Four: At the bottom of the page, click the `Create my access token` button to get your access token key and secret. 
-     
-     * Copy the access token key and secret displayed at the bottom of the next screen. Paste them into your .env file, replacing the placeholders for `your-twitter-access-token-key` and `your-twitter-access-token-secret`.
 
 6. Make a file called `random.txt`.
 
@@ -37,11 +24,6 @@
 
 7. Make a JavaScript file named `liri.js`.
 
-8. At the top of the `liri.js` file, add code to read and set any environment variables with the dotenv package:
-
-```js
-require("dotenv").config();
-```
 
 9. Add the code required to import the `keys.js` file and store it in a variable.
   
@@ -81,18 +63,7 @@ require("dotenv").config();
      * The album that the song is from
 
    * If no song is provided then your program will default to "The Sign" by Ace of Base.
-   
-   * You will utilize the [node-spotify-api](https://www.npmjs.com/package/node-spotify-api) package in order to retrieve song information from the Spotify API.
-   
-   * Like the Twitter API, the Spotify API requires you sign up as a developer to generate the necessary credentials. You can follow these steps in order to generate a **client id** and **client secret**:
 
-   * Step One: Visit <https://developer.spotify.com/my-applications/#!/>
-   
-   * Step Two: Either login to your existing Spotify account or create a new one (a free account is fine) and log in.
-
-   * Step Three: Once logged in, navigate to <https://developer.spotify.com/my-applications/#!/applications/create> to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the "complete" button.
-
-   * Step Four: On the next screen, scroll down to where you see your client id and client secret. Copy these values down somewhere, you'll need them to use the Spotify API and the [node-spotify-api package](https://www.npmjs.com/package/node-spotify-api).
 
 3. `node liri.js movie-this '<movie name here>'`
 
