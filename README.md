@@ -31,3 +31,19 @@
 * Navigate to directory of the repository, and run `node liri.js`!
 
 ## Liri Bot in Action
+
+* `get-tweets`
+
+  ![get-tweets](assets/images/get-tweets.gif)
+
+* `spotify-this`
+
+  ![spotify-this](assets/images/spotify-this.gif)
+
+* `movie-this`
+
+  ![movie-this](assets/images/movie-this.gif)
+
+* `do-what-it-says`
+
+  ![do-what-it-says](assets/images/do-what-it-says.gif)
