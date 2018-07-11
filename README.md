@@ -1,61 +1,33 @@
-# LIRI Bot
+# rb-10-liri-node-app
 
-* command line node app that takes in parameters and gives you back data
-* display latest tweets... add a few tweets to alias account
-* will need to send requests to Twitter, Spotify, OMDB APIs
-   * [Twitter](https://www.npmjs.com/package/twitter)
-   * [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
-   * [Request](https://www.npmjs.com/package/request)
-     * use Request to grab data from the [OMDB API](http://www.omdbapi.com).
-   * [DotEnv](https://www.npmjs.com/package/dotenv)
+* This is a command line node app that takes in parameters and outputs data to the `console` and `log.txt`.
+* [Inquirer.js](https://www.npmjs.com/package/inquirer) is used to create a user-friendly command line interface.
+* Four commands are available:
+  * `get-tweets`
+    * accepts two params: **user Twitter handle** and **tweet count**
+    * outputs the latest tweets of specified Twitter user
+    * utilizes [Twitter for Node.js](https://www.npmjs.com/package/twitter) package
+  * `spotify-this-song`
+    * accepts two params: **song name** and **limit** (for number of search results to display)
+    * outputs the search result for the specified song
+    * utilizes [node-spotify-api](https://www.npmjs.com/package/node-spotify-api) package
+  * `movie-this`
+    * accepts one param: **movie title**
+    * outputs the result for the specified movie
+    * utilizes [Request - Simplified HTTP client](https://www.npmjs.com/package/request) package and [OMDb API](http://www.omdbapi.com)
+  * `do-what-it-says`
+    * reads a string from `random.txt`
+    * string is of format: `{command},{param1},{param2}`, where `{param2}` is optional
+    * examples:
+      * `get-tweets,realDonaldTrump,3`
+      * `spotify-this-song,I Want it That Way`
+      * `movie-this,Avengers`
+* A `.env` file is used by the [dotenv](https://www.npmjs.com/package/dotenv) package to set environment variables to the global `process.env` object in node. These values are specific to the computer node is running on, thus keeping API key information private as long as `.env` is included in `.gitignore`.
 
-* The `.env1` file will be used by the `dotenv` package to set environment variables to 
+## Using the Liri Bot
 
-* This file will be used by the `dotenv` package to set what are known as environment variables to the global `process.env` object in node. These are values that are meant to be specific to the computer that node is running on, and since we are gitignoring this file, they won't be pushed to github &mdash; keeping our API key information private.
+* `git clone` this repository
+* Rename `.env.example` to `.env`, and replace the placeholder values with your own API keys and tokens.
+* Navigate to directory of the repository, and run `node liri.js`!
 
-* If someone wanted to clone your app from github and run it themselves, they would need to supply their own `.env` file for it to work.
-
-
-6. Make a file called `random.txt`.
-
-   * Inside of `random.txt` put the following in with no extra characters or white space:
-     
-     * spotify-this-song,"I Want it That Way"
-
-7. Make a JavaScript file named `liri.js`.
-
-
-9. Add the code required to import the `keys.js` file and store it in a variable.
-  
-* You should then be able to access your keys information like so
-
-  ```js
-  var spotify = new Spotify(keys.spotify);
-  var client = new Twitter(keys.twitter);
-  ```
-
-10. Make it so liri.js can take in one of the following commands:
-
-    * `my-tweets`
-
-    * `spotify-this-song`
-
-    * `movie-this`
-
-    * `do-what-it-says`
-
-### What Each Command Should Do
-
-### BONUS
-
-* In addition to logging the data to your terminal/bash window, output the data to a .txt file called `log.txt`.
-
-* Make sure you append each command you run to the `log.txt` file. 
-
-* Do not overwrite your file each time you run a command.
-
-
-
-spotify-this-song,"I Want it That Way",5
-get-tweets,realDonaldTrump,6
-movie-this,jurassic park
+## Liri Bot in Action
