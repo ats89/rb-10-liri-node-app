@@ -20,7 +20,7 @@ function inquireCommand() {
     if (answers.command === 'get-tweets') {
       inquireTwitterInfo();
     } else if (answers.command === 'spotify-this-song') {
-      // 
+      inquireSpotifyInfo(); 
     } else if (answers.command === 'movie-this') {
       inquireMovieName(); 
     } else { // 'do-what-it-says'
@@ -65,6 +65,42 @@ function inquireTwitterInfo() {
   });
 }
 
+function inquireSpotifyInfo() {
+  inquirer.prompt([
+    {
+      type: 'input',
+      message: 'What song are you looking for?',
+      name: 'songName'
+    },
+    {
+      type: 'input',
+      message: 'How many results do you want displayed (1-10)?',
+      name: 'limit',
+      default: 3,
+      validate: (name) => {
+        if (isNaN(name)) {
+          console.log('\nInvalid input: not a number!');
+          return false;
+        } else if (name < 1 || name > 10) {
+          console.log('\nInvalid input: out of range!');
+          return false;
+        } else {
+          return true;
+        };
+      }
+    },
+    {
+      type: 'confirm',
+      message: 'Are you sure:',
+      name: 'confirm',
+      default: true
+    }
+  ]).then(answers => {
+    !answers.confirm ? 
+      inquireSpotifyInfo() : displaySpotifyData(answers.songName, answers.limit); 
+  });
+}
+
 function inquireMovieName() {
   inquirer.prompt([
     {
@@ -103,8 +139,32 @@ function displayTweetsData(screenName, count) {
       console.log(`Here are the last ${count} tweets on @${screenName}'s timeline:`);
       console.log(JSON.stringify(tweetsArray, null, 2));
     } else {
-      console.log('That twitter user could not be found.');
+      console.log('Twitter user could not be found.');
     }
+  });
+}
+
+function displaySpotifyData(songName, limit, hideIntroMsg) {
+  spotify.search({ type: 'track', query: songName, limit: limit}, (err, data) => {
+    if (!err && data.tracks.items.length) {
+      const songResults = data.tracks.items;
+      let songsArray = [];
+
+      for (let song of songResults) {
+        songsArray.push({
+          name: song.name,
+          artist: song.artists[0].name,        
+          album: song.album.name,
+          previewLink: song.preview_url
+        }); 
+      };
+
+      if (!hideIntroMsg) console.log(`Here are the results for '${songName}':`);
+      console.log(JSON.stringify(songsArray, null, 2));
+    } else {
+      console.log('Your song could not be found! Here is a nice song:');
+      displaySpotifyData('The Sign Ace of Base' ,1, true);
+    };
   });
 }
 
