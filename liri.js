@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const inquirer = require('inquirer');
 const request = require('request');
+const fs = require('fs');
 const Spotify = require('node-spotify-api');
 const Twitter = require('twitter');
 const keys = require("./keys.js");
@@ -24,7 +25,40 @@ function inquireCommand() {
     } else if (answers.command === 'movie-this') {
       inquireMovieName(); 
     } else { // 'do-what-it-says'
-      // 
+      fs.readFile('random.txt', 'utf8', (err, data) => {
+        if (err) throw err;
+
+        const inputs = data.split(',');
+        if (inputs[0] === 'get-tweets') {
+          const screenName = inputs[1] ? inputs[1] : '';
+          const count = isNaN(inputs[2]) || inputs[2] < 1 || inputs[2] > 20
+          ? 5 : inputs[2];
+
+          if (screenName) {
+            displayTweetsData(screenName, count);
+          } else {
+            console.log('Twitter handle missing in random.txt.');
+          };
+        } else if (inputs[0] === 'spotify-this-song') {
+          const songName = inputs[1] ? inputs[1] : '';
+          const limit = isNaN(inputs[2]) || inputs[2] < 1 || inputs[2] > 10
+            ? 3 : inputs[2];
+
+          if (songName) {
+            displaySpotifyData(songName, limit);
+          } else {
+            console.log('Song name missing in random.txt.');
+          };
+        } else if (inputs[0] === 'movie-this') {
+          if (inputs[1]) {
+            displayMovieData(inputs[1]);
+          } else {
+            console.log('Movie name missing in random.txt.');
+          };
+        } else {
+          console.log('Invalid command in random.txt.');
+        };
+      }); 
     }
   });
 }
@@ -171,7 +205,7 @@ function displaySpotifyData(songName, limit, hideIntroMsg) {
 function displayMovieData(movie, hideIntroMsg) {
   const titleParam = movie.replace(/ /g, '+');
 
-  request(`http://www.omdbapi.com/?t=${titleParam}&y=&plot=short&apikey=trilogy`, (error, response, body) => {
+  request(`http://www.omdbapi.com/?t=${titleParam}&plot=short&apikey=trilogy`, (error, response, body) => {
     if (!error && response.statusCode === 200 && JSON.parse(body).Response === 'True') {
       const data = JSON.parse(body);
 
