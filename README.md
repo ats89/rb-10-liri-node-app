@@ -1,4 +1,4 @@
-# rb-10-liri-node-app
+# Liri Node App
 
 * This is a command line node app that takes in parameters and outputs data to the `console` and `log.txt`.
 * [Inquirer.js](https://www.npmjs.com/package/inquirer) is used to create a user-friendly command line interface.
@@ -32,18 +32,4 @@
 
 ## Liri Bot in Action
 
-* `get-tweets`
-
-  ![get-tweets](assets/images/get-tweets.gif)
-
-* `spotify-this`
-
-  ![spotify-this](assets/images/spotify-this.gif)
-
-* `movie-this`
-
-  ![movie-this](assets/images/movie-this.gif)
-
-* `do-what-it-says`
-
-  ![do-what-it-says](assets/images/do-what-it-says.gif)
+![liri-bot-in-action](assets/images/liri-bot-in-action.gif)

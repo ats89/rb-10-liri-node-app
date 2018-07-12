@@ -1,0 +1,80 @@
+
+Running the 'movie-this' command:
+Here is your movie:
+{
+  "title": "Azad",
+  "year": "2002",
+  "imdbRating": "5.5/10",
+  "rottenTomatoesRating": "N/A",
+  "country": "Turkey",
+  "language": "Turkish",
+  "plot": "N/A",
+  "actors": "Bülent Inal, Ahu Türkpençe, Sevket Çoruh, Asli Aybars"
+}
+Running the 'get-tweets' command:
+Here are the last 2 tweets on @realDonaldTrump's timeline:
+[
+  {
+    "createdAt": "Thu Jul 12 14:12:41 +0000 2018",
+    "text": "Thank you #NATO2018! https://t.co/nk85QBv1u7",
+    "user": "realDonaldTrump",
+    "retweetCount": 3157,
+    "favoriteCount": 13448
+  },
+  {
+    "createdAt": "Thu Jul 12 10:57:06 +0000 2018",
+    "text": "#NATOSummit2018 Press Conference in Brussels, Belgium:\nhttps://t.co/iEOeGV6YBI",
+    "user": "realDonaldTrump",
+    "retweetCount": 6081,
+    "favoriteCount": 21541
+  }
+]
+Running the 'spotify-this-song' command:
+Here are the results for 'i want it that way':
+[
+  {
+    "name": "I Want It That Way",
+    "artist": "Backstreet Boys",
+    "album": "The Hits--Chapter One",
+    "previewLink": "https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=71570300773e431c888c64e2ae235412"
+  },
+  {
+    "name": "I Want It That Way",
+    "artist": "Backstreet Boys",
+    "album": "Millennium",
+    "previewLink": "https://p.scdn.co/mp3-preview/b8c2410a5acb68b462be6ac85f1312430e2b149c?cid=71570300773e431c888c64e2ae235412"
+  },
+  {
+    "name": "I Want It That Way",
+    "artist": "Backstreet Boys",
+    "album": "The Essential Backstreet Boys",
+    "previewLink": "https://p.scdn.co/mp3-preview/f9f504a705fcaaf2f24b004b629725451014ad6c?cid=71570300773e431c888c64e2ae235412"
+  }
+]
+Running the 'get-tweets' command:
+
+Invalid input: out of range!
+Here are the last 3 tweets on @realDonaldTrump's timeline:
+[
+  {
+    "createdAt": "Thu Jul 12 16:32:21 +0000 2018",
+    "text": "A very nice note from Chairman Kim of North Korea. Great progress being made! https://t.co/6NI6AqL0xt",
+    "user": "realDonaldTrump",
+    "retweetCount": 3088,
+    "favoriteCount": 9513
+  },
+  {
+    "createdAt": "Thu Jul 12 15:10:51 +0000 2018",
+    "text": "“Trump has been the most consequential president in history when it comes to minority employment. In June, for inst… https://t.co/ZkM22tKnSD",
+    "user": "realDonaldTrump",
+    "retweetCount": 5441,
+    "favoriteCount": 19713
+  },
+  {
+    "createdAt": "Thu Jul 12 15:00:54 +0000 2018",
+    "text": "RT @dougmillsnyt: .@realDonaldTrump &amp; @FLOTUS walk off Air Force One as they arrive at London Stansted Airport in Stansted, England. https:…",
+    "user": "realDonaldTrump",
+    "retweetCount": 2568,
+    "favoriteCount": 0
+  }
+]
