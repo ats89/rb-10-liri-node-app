@@ -27,6 +27,7 @@
 ## Using the Liri Bot
 
 * `git clone` this repository
+* Run `npm install`
 * Rename `.env.example` to `.env`, and replace the placeholder values with your own API keys and tokens.
 * Navigate to directory of the repository, and run `node liri.js`!
 
