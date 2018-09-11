@@ -1,4 +1,4 @@
-# Liri Node App
+# liri-node-app
 
 * This is a command line node app that takes in parameters and outputs data to the `console` and `log.txt`.
 * [Inquirer.js](https://www.npmjs.com/package/inquirer) is used to create a user-friendly command line interface.
